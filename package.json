@@ -1,0 +1,17 @@
+{
+  "name": "thousand-separator-number-parser",
+  "version": "0.1.0",
+  "description": "Parses human-formatted numbers with locale-specific thousands separators (comma, period, space, apostrophe) into numbers.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {}
+}
