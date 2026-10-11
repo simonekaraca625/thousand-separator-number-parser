@@ -23,3 +23,10 @@ The trade-off: it guesses the decimal mark from position and grouping, so it ref
 The decimal mark is inferred as the last `.` or `,` only when it is followed by 1–3 digits and no further `.`/`,` appears after it. So `1,234` is `1234` (comma is thousands), but `1,2345` treats the comma as thousands and then rejects it for bad grouping — it does **not** silently become `1.2345`. If you need to parse a value with a four-digit fractional part, prepend a zero: `0,2345` is read as `0.2345`.
 
 The single exported name is `parseNumber`.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
